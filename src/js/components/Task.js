@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deleteArticle } from "../actions/index";
+import { deleteTask } from "../actions/index";
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteArticle: article => dispatch(deleteArticle(article))
+    deleteTask: task => dispatch(deleteTask(task))
   };
 };
 
-class ConnectedArticle extends Component{
+class ConnectedTask extends Component{
   constructor(){
     super();
     this.handleDeleted = this.handleDeleted.bind(this);
   }
 
-  handleDeleted(article){
-    this.props.deleteArticle(article);
+  handleDeleted(task){
+    this.props.deleteTask(task);
   }
 
   render(){
@@ -29,8 +29,8 @@ class ConnectedArticle extends Component{
 
 }
 
-const Article = connect(null, mapDispatchToProps)(ConnectedArticle);
+const Task = connect(null, mapDispatchToProps)(ConnectedTask);
 
 
-export default Article;
+export default Task;
 

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Article from "./Article"
+import Task from "./Task"
 
 const mapStateToProps = state => {
-  return { articles: state.articles };
+  return { tasks: state.tasks };
 };
 
 class ConnectedList extends Component{
@@ -15,8 +15,8 @@ class ConnectedList extends Component{
   render(){
     return(
       <ul className="list-group list-group-flush">
-        {this.props.articles.map(el => (
-          <Article key={el.id} element={el} />
+        {this.props.tasks.map(el => (
+          <Task key={el.id} element={el} />
         ))}
       </ul>
       )

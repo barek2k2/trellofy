@@ -1,4 +1,4 @@
-import {ADD_ARTICLE} from "../constants/action-types"
-import {DELETE_ARTICLE} from "../constants/action-types"
-export const addArticle = article => ({ type: ADD_ARTICLE, payload: article });
-export const deleteArticle = article => ({ type: DELETE_ARTICLE, payload: article });
+import {ADD_TASK} from "../constants/action-types"
+import {DELETE_TASK} from "../constants/action-types"
+export const addTask = task => ({ type: ADD_TASK, payload: task });
+export const deleteTask = task => ({ type: DELETE_TASK, payload: task });

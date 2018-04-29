@@ -1,15 +1,15 @@
-import { ADD_ARTICLE } from "../constants/action-types";
-import { DELETE_ARTICLE } from "../constants/action-types";
+import { ADD_TASK } from "../constants/action-types";
+import { DELETE_TASK } from "../constants/action-types";
 const initialState = {
-  articles: []
+  tasks: []
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_ARTICLE:
-      return { ...state, articles: [...state.articles, action.payload] };
-    case DELETE_ARTICLE:
-      let articles = state.articles.filter(artile => artile.id != action.payload.id)
-      return { ...state, articles: articles };
+    case ADD_TASK:
+      return { ...state, tasks: [...state.tasks, action.payload] };
+    case DELETE_TASK:
+      let tasks = state.tasks.filter(artile => artile.id != action.payload.id)
+      return { ...state, tasks: tasks };
     default:
       return state;
   }
