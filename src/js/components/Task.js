@@ -21,8 +21,8 @@ class ConnectedTask extends Component{
   render(){
     let element = this.props.element;
     return(
-      <li className="list-group-item" key={element.id}>
-        {element.title} <a onClick={this.handleDeleted.bind(this,element)}>x</a>
+      <li className="list-group-item task" key={element.id}>
+        {element.title} - {element.status} <a className="delete" onClick={this.handleDeleted.bind(this,element)}>x</a>
       </li>
     )
   }

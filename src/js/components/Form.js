@@ -12,19 +12,27 @@ class ConnectedForm extends Component {
   constructor() {
     super();
     this.state = {
-      title: ""
+      title: "",
+      status: 'todo'
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleTitleChanged = this.handleTitleChanged.bind(this);
+    this.handleStatusChanged = this.handleStatusChanged.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChange(event) {
+  handleTitleChanged(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
+
+  handleStatusChanged(event) {
+    this.setState({ [event.target.id]: event.target.value });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const { title } = this.state;
+    const { status } = this.state;
     const id = uuidv1();
-    this.props.addTask({ title, id });
+    this.props.addTask({ title, id, status });
     this.setState({ title: "" });
   }
   render() {
@@ -38,8 +46,13 @@ class ConnectedForm extends Component {
             className="form-control"
             id="title"
             value={title}
-            onChange={this.handleChange}
+            onChange={this.handleTitleChanged}
           />
+          <select id="status" onChange={this.handleStatusChanged}>
+            <option value="todo">Todo</option>
+            <option value="doing">Doing</option>
+            <option value="done">Done</option>
+          </select>
         </div>
         <button type="submit" className="btn btn-success btn-lg">
           SAVE

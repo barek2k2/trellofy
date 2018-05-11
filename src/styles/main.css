@@ -1,0 +1,4 @@
+li.task a.delete{
+  cursor: pointer;
+  font-size: 24px;
+}

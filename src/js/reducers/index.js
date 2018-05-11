@@ -8,7 +8,7 @@ const rootReducer = (state = initialState, action) => {
     case ADD_TASK:
       return { ...state, tasks: [...state.tasks, action.payload] };
     case DELETE_TASK:
-      let tasks = state.tasks.filter(artile => artile.id != action.payload.id)
+      let tasks = state.tasks.filter(task => task.id != action.payload.id)
       return { ...state, tasks: tasks };
     default:
       return state;
