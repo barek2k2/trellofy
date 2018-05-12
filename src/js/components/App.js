@@ -1,26 +1,32 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import List from "./List";
-import Form from "./Form";
-import { connect } from "react-redux";
+import NewTaskModal from "./NewTaskModal";
+import {connect} from "react-redux";
 
 const mapStateToProps = state => {
-  return { tasks: state.tasks };
+  return {tasks: state.tasks, statuses: state.statuses};
 };
 
 class ConnectedApp extends Component {
-  constructor(){
+  constructor() {
     super()
   }
-  render(){
-    return(
-      <div className="row mt-5">
-        <div className="col-md-4 offset-md-1">
+
+  render() {
+    return (
+      <div>
+        <div className="row">
           <h2>{this.props.tasks.length} Tasks</h2>
-          <List />
         </div>
-        <div className="col-md-4 offset-md-1">
-          <h2>Add a new task</h2>
-          <Form />
+        <div className="row">
+          <ul className="lists">
+            {this.props.statuses.map(status => (
+              <li className="list">
+                <div className="list-header">{status}</div>
+                <List status={status}/>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     )

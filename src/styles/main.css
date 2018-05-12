@@ -1,4 +1,26 @@
+li.task{
+  list-style: none;
+  padding: 3px;
+  background: #CCCCCC;
+  margin: 3px;
+  box-shadow: 2px 2px #888888
+}
+
 li.task a.delete{
   cursor: pointer;
   font-size: 24px;
+  float: right;
+}
+
+ul.lists li.list div.list-header{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+ul.lists li.list{
+  list-style: none;
+  float: left;
+  width: 320px;
+  border: 1px solid #DADADA;
+  padding: 4px;
+  margin: 2px;
 }
